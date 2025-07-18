@@ -1,0 +1,11 @@
+database:
+  host: "localhost" # 数据库地址
+  port: 5432  # 数据库端口
+  user: "blockim"  # 名称
+  password: "blockim"  # 密码
+  dbname: "blockim"  # 数据库
+  mongoHost: "localhost" # Mongo地址
+  mongoPort: 27017 # Mongo端口
+  mongoUser: "zhumeng" # Mongo用户
+  mongoPassword: "zhumeng" # Mongo密码
+  mongoDBName: "zhumeng" # Mongo库名
