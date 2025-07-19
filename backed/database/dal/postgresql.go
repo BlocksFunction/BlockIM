@@ -19,5 +19,5 @@ func InitMySQL(cfg config.DBConfig) error {
 		return err
 	}
 	PostgreSQL = db
-	return PostgreSQL.AutoMigrate(&model.User{}, &model.Article{})
+	return PostgreSQL.AutoMigrate(&model.User{}, &model.VerificationToken{})
 }

@@ -20,8 +20,23 @@ type DBConfig struct {
 	MongoDBName   string `yaml:"mongoDBName"`
 }
 
+type AppConfig struct {
+	Name      string `yaml:"name"`
+	AppHost   string `yaml:"appHost"`
+	FrontHost string `yaml:"frontHost"`
+}
+
+type SMTPConfig struct {
+	SMTPHost     string `yaml:"smtpHost"`
+	SMTPPort     int    `yaml:"smtpPort"`
+	SMTPUser     string `yaml:"smtpUser"`
+	SMTPPassword string `yaml:"smtpPassword"`
+}
+
 type Config struct {
-	Database DBConfig `yaml:"database"`
+	Database DBConfig   `yaml:"database"`
+	App      AppConfig  `yaml:"app"`
+	SMTP     SMTPConfig `yaml:"smtp"`
 }
 
 func Load(path string) (*Config, error) {

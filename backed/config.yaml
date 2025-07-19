@@ -9,3 +9,12 @@ database:
   mongoUser: "zhumeng" # Mongo用户
   mongoPassword: "zhumeng" # Mongo密码
   mongoDBName: "zhumeng" # Mongo库名
+app:
+  name: "BlockIM"
+  appHost: "localhost:8080"
+  frontHost: "localhost:5137"
+smtp:
+  smtpHost: "smtp.qq.com"
+  smtpPort: 587
+  smtpUser: "imaur@foxmail.com"
+  smtpPassword: "pqciizszvsxadbad"

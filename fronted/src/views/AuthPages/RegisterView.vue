@@ -38,9 +38,9 @@ async function handleSubmit() {
 			await router.push("/");
 		}
 	} catch (error: any) {
-		toast.error("发生了一些错误!", {
-			description: error?.data?.reason || "未知错误, 请联系网站管理员",
-		});
+    toast.error("发生了一些错误!", {
+      description: error.response.data.error || "未知错误, 请联系网站管理员",
+    });
 	} finally {
 		formValues.value.isSubmitting = false;
 	}

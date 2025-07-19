@@ -7,6 +7,7 @@ import (
 	"Backed/config"
 	"Backed/database/dal"
 	"Backed/utils"
+	"Backed/utils/accout"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"log"
@@ -26,6 +27,14 @@ func StartServer() {
 		return
 	}
 
+	err = accout.SendVerificationEmail("3398817447@qq.com", accout.GenerateToken(1946204647656001536))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// 加载清理未激活账号程序
+	go accout.CleanupNotActiveUserTask()
+
 	router := gin.Default()
 	initRoutes(router)
 	if err := router.Run(":8080"); err != nil {
@@ -37,6 +46,7 @@ func StartServer() {
 func initRoutes(router *gin.Engine) {
 	router.POST("/login", auth.Login)
 	router.POST("/register", auth.Register)
+	router.GET("/verify", auth.VerifyAuth)
 	router.GET("/me", utils.AuthMiddleware(), api.Me)
 
 	articleGroup := router.Group("/article")

@@ -10,6 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 	"net/http"
+	"time"
 )
 
 const (
@@ -127,5 +128,29 @@ func Register(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"token":   token,
 		"message": "注册成功",
+	})
+}
+
+func VerifyAuth(c *gin.Context) {
+	token := c.Query("token")
+
+	var verificationToken model.VerificationToken
+	result := dal.PostgreSQL.Where("token = ? AND expires_at > ?", token, time.Now()).Preload("User").First(&verificationToken)
+
+	if result.Error != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"title":   "验证失败",
+			"message": "无效或过期的验证链接",
+		})
+		return
+	}
+
+	dal.PostgreSQL.Model(&verificationToken.User).Update("is_active", true)
+
+	dal.PostgreSQL.Delete(&verificationToken)
+
+	c.JSON(http.StatusBadRequest, gin.H{
+		"title":   "aaa",
+		"message": "aaa",
 	})
 }

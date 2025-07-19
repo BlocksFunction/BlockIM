@@ -9,6 +9,6 @@ const theme = useTheme();
 <template>
 	<div :class="theme.getTheme">
 		<RouterView />
-		<Toaster />
+		<Toaster richColors :theme="theme.getTheme"/>
 	</div>
 </template>
