@@ -6,15 +6,15 @@ database:
   dbname: "blockim"  # 数据库
   mongoHost: "localhost" # Mongo地址
   mongoPort: 27017 # Mongo端口
-  mongoUser: "zhumeng" # Mongo用户
-  mongoPassword: "zhumeng" # Mongo密码
-  mongoDBName: "zhumeng" # Mongo库名
+  mongoUser: "mongo" # Mongo用户
+  mongoPassword: "mongo" # Mongo密码
+  mongoDBName: "mongo" # Mongo库名
 app:
   name: "BlockIM"
   appHost: "localhost:8080"
   frontHost: "localhost:5137"
 smtp:
-  smtpHost: "smtp.qq.com"
-  smtpPort: 587
-  smtpUser: "imaur@foxmail.com"
-  smtpPassword: "pqciizszvsxadbad"
+  smtpHost: "smtp.your.com"
+  smtpPort: 114514
+  smtpUser: "your_email"
+  smtpPassword: "your_pass"
