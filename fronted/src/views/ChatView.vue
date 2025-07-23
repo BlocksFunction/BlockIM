@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup vapor lang="ts">
 import ChatInterface from "@/components/Chat/ChatInterface.vue";
 import FriendList from "@/components/Chat/FriendList.vue";
 import ConfigInterface from "@/components/Config/ConfigInterface.vue";
